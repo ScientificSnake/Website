@@ -89,7 +89,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                 <div class="md:w-2/3">
-                    <h2 class="text-4xl font-bold mb-4 text-black">Upcoming Events</h2>
+                    <h2 class="text-4xl font-bold mb-4 text-black">Our Calendar</h2>
                     <div class="w-24 h-1 bg-gold rounded-full mb-6"></div>
                     <p class="text-gray-600 text-lg">
                         Stay up-to-date with our latest meetings, service events, and fundraisers. Click on an event for more details and to sign up!
@@ -126,5 +126,254 @@
             </div>
         </div>
     </section>
+
+    <section id="upcomingEvents" class="upcoming-events py-20 bg-navy text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Upcoming Events</h2>
+                <div class="w-24 h-1 bg-gold rounded-full mx-auto"></div>
+            </div>
+            <div id="event-list" class="event-list" aria-live="polite" aria-busy="true">
+                <p class="event-list-message">Loading upcoming events...</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="event-dialog" class="event-dialog" role="dialog" aria-modal="true" aria-labelledby="event-dialog-name" aria-hidden="true" hidden>
+        <button class="event-dialog-backdrop" type="button" aria-label="Close event details"></button>
+        <div class="event-dialog-surface">
+            <button id="event-dialog-close" class="event-dialog-close" type="button" aria-label="Close event details">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <section class="event-dialog-details" aria-labelledby="event-dialog-name">
+                <p class="event-dialog-eyebrow">Upcoming Event</p>
+                <h2 id="event-dialog-name" class="event-dialog-name"></h2>
+                <time id="event-dialog-date" class="event-dialog-date"></time>
+                <p id="event-dialog-description" class="event-dialog-description"></p>
+                <p class="event-dialog-signup">Enter Contact Info in sheet to sign up</p>
+            </section>
+            <section class="event-dialog-sheet" aria-label="Event signup sheet">
+                <iframe id="event-sheet-frame" title="Event signup sheet" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p id="event-sheet-message" class="event-sheet-message" hidden>Signup sheet is not available for this event.</p>
+                <p id="event-sheet-readonly" class="event-sheet-note" hidden>This published sheet is read-only. Use an editable Google Sheets /edit link and grant edit access to allow sign-ups.</p>
+                <a id="event-sheet-open" class="event-sheet-open" target="_blank" rel="noopener noreferrer" hidden>
+                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    Open link in a new tab
+                </a>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSEi5qY_45WS4L49m0GA471jLSZOH9Ub57NdApZIiFRSbKsTUp_PJMzUbIbvRTfKG7CSSVyfUOK48nr/pub?gid=0&single=true&output=csv';
+        const eventList = document.getElementById('event-list');
+        const eventDialog = document.getElementById('event-dialog');
+        const closeDialogButton = document.getElementById('event-dialog-close');
+        const backdropButton = eventDialog.querySelector('.event-dialog-backdrop');
+        const dialogName = document.getElementById('event-dialog-name');
+        const dialogDate = document.getElementById('event-dialog-date');
+        const dialogDescription = document.getElementById('event-dialog-description');
+        const sheetFrame = document.getElementById('event-sheet-frame');
+        const sheetMessage = document.getElementById('event-sheet-message');
+        const sheetReadonlyNote = document.getElementById('event-sheet-readonly');
+        const sheetOpenLink = document.getElementById('event-sheet-open');
+        let previouslyFocusedElement;
+
+        function parseCsv(csvText) {
+            const rows = [];
+            let row = [];
+            let field = '';
+            let insideQuotes = false;
+
+            for (let index = 0; index < csvText.length; index += 1) {
+                const character = csvText[index];
+
+                if (character === '"') {
+                    if (insideQuotes && csvText[index + 1] === '"') {
+                        field += '"';
+                        index += 1;
+                    } else {
+                        insideQuotes = !insideQuotes;
+                    }
+                } else if (character === ',' && !insideQuotes) {
+                    row.push(field);
+                    field = '';
+                } else if ((character === '\n' || character === '\r') && !insideQuotes) {
+                    if (character === '\r' && csvText[index + 1] === '\n') index += 1;
+                    row.push(field);
+                    if (row.some(value => value.trim() !== '')) rows.push(row);
+                    row = [];
+                    field = '';
+                } else {
+                    field += character;
+                }
+            }
+
+            row.push(field);
+            if (row.some(value => value.trim() !== '')) rows.push(row);
+            return rows;
+        }
+
+        function parseEventDate(value) {
+            const trimmedValue = value.trim();
+            const dateOnlyMatch = trimmedValue.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+            if (dateOnlyMatch) {
+                const [, year, month, day] = dateOnlyMatch;
+                const date = new Date(Number(year), Number(month) - 1, Number(day));
+                if (date.getFullYear() !== Number(year) || date.getMonth() !== Number(month) - 1 || date.getDate() !== Number(day)) {
+                    return null;
+                }
+                return date;
+            }
+
+            const timestamp = Date.parse(trimmedValue);
+            return Number.isNaN(timestamp) ? null : new Date(timestamp);
+        }
+
+        function getSheetEmbedUrl(embedValue) {
+            const embedMarkup = new DOMParser().parseFromString(embedValue, 'text/html');
+            const source = embedMarkup.querySelector('iframe')?.getAttribute('src') || embedValue.trim();
+
+            try {
+                const url = new URL(source);
+                if (url.protocol !== 'https:' || url.hostname !== 'docs.google.com') return '';
+                return url.href;
+            } catch {
+                return '';
+            }
+        }
+
+        function openEventDialog(eventDetails, trigger) {
+            previouslyFocusedElement = trigger || document.activeElement;
+            dialogName.textContent = eventDetails.name;
+            dialogDate.dateTime = eventDetails.date.toISOString();
+            dialogDate.textContent = new Intl.DateTimeFormat('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+            }).format(eventDetails.date);
+            dialogDescription.textContent = eventDetails.description;
+
+            const sheetUrl = getSheetEmbedUrl(eventDetails.link);
+            const canEditSheet = sheetUrl.includes('/edit');
+            sheetFrame.hidden = !sheetUrl;
+            sheetMessage.hidden = Boolean(sheetUrl);
+            sheetReadonlyNote.hidden = !sheetUrl || canEditSheet;
+            sheetOpenLink.hidden = !sheetUrl;
+            if (sheetUrl) {
+                sheetOpenLink.href = sheetUrl;
+            } else {
+                sheetOpenLink.removeAttribute('href');
+            }
+            if (sheetUrl) sheetFrame.src = sheetUrl;
+
+            eventDialog.hidden = false;
+            eventDialog.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('event-dialog-open');
+            document.querySelectorAll('body > header, body > section').forEach(element => {
+                element.inert = true;
+            });
+            closeDialogButton.focus();
+        }
+
+        function closeEventDialog() {
+            eventDialog.hidden = true;
+            eventDialog.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('event-dialog-open');
+            document.querySelectorAll('body > header, body > section').forEach(element => {
+                element.inert = false;
+            });
+            previouslyFocusedElement?.focus();
+        }
+
+        function renderEvents(events) {
+            eventList.replaceChildren();
+            eventList.setAttribute('aria-busy', 'false');
+
+            if (events.length === 0) {
+                const message = document.createElement('p');
+                message.className = 'event-list-message';
+                message.textContent = 'No upcoming events are scheduled.';
+                eventList.append(message);
+                return;
+            }
+
+            for (const event of events) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'event-card';
+                button.addEventListener('click', () => openEventDialog(event, button));
+
+                const date = document.createElement('time');
+                date.className = 'event-card-date';
+                date.dateTime = event.date.toISOString();
+                date.textContent = new Intl.DateTimeFormat('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                }).format(event.date);
+
+                const name = document.createElement('span');
+                name.className = 'event-card-name';
+                name.textContent = event.name;
+
+                const description = document.createElement('span');
+                description.className = 'event-card-description';
+                description.textContent = event.description;
+
+                const arrow = document.createElement('i');
+                arrow.className = 'fas fa-arrow-right event-card-arrow';
+                arrow.setAttribute('aria-hidden', 'true');
+
+                button.append(date, name, description, arrow);
+                eventList.append(button);
+            }
+        }
+
+        fetch(csvUrl)
+            .then(response => {
+                if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+                return response.text();
+            })
+            .then(csvText => {
+                const rows = parseCsv(csvText.replace(/^\uFEFF/, ''));
+                const now = Date.now();
+                const events = rows.slice(1)
+                    .map(row => ({
+                        date: parseEventDate(row[0] || ''),
+                        link: (row[1] || '').trim(),
+                        name: (row[2] || '').trim(),
+                        description: (row[3] || '').trim()
+                    }))
+                    .filter(event => event.date && event.date.getTime() > now && event.name)
+                    .sort((first, second) => first.date - second.date)
+                    .slice(0, 3);
+
+                renderEvents(events);
+            })
+            .catch(error => {
+                console.error('Unable to load upcoming events:', error);
+                eventList.setAttribute('aria-busy', 'false');
+                const message = document.createElement('p');
+                message.className = 'event-list-message';
+                message.textContent = 'Upcoming events could not be loaded right now.';
+                eventList.replaceChildren(message);
+            });
+
+        closeDialogButton.addEventListener('click', closeEventDialog);
+        backdropButton.addEventListener('click', closeEventDialog);
+        document.addEventListener('keydown', event => {
+            if (eventDialog.hidden) return;
+            if (event.key === 'Escape') {
+                closeEventDialog();
+            } else if (event.key === 'Tab') {
+                event.preventDefault();
+                closeDialogButton.focus();
+            }
+        });
+    </script>
 </body>
 </html>
