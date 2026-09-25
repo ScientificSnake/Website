@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Century High School Key Club</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: '#002855', /* Key Club Navy Blue */
+                        gold: '#F2A900', /* Key Club Gold */
+                        light: '#F8F9FA'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <header class="glass-nav fixed w-full top-0 z-50 text-white shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center p-1 border-2 border-gold">
+                        <!-- Placeholder for Key Club Logo -->
+                        <img src="https://placehold.co/100x100/ffffff/002855?text=Logo" alt="Key Club Logo" class="w-full h-full object-contain rounded-full">
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl tracking-tight block">Century High</span>
+                        <span class="text-gold font-semibold text-sm tracking-wider uppercase">Key Club</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-gold font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-white hover:text-gold font-medium transition-colors">About Us</a>
+                    <a href="#officers" class="text-white hover:text-gold font-medium transition-colors">Officers</a>
+                    <a href="#calendar" class="text-white hover:text-gold font-medium transition-colors">Calendar</a>
+                    <a href="#gallery" class="text-white hover:text-gold font-medium transition-colors">Gallery</a>
+                </nav>
+
+                <!-- CTA Button (Desktop) -->
+                <div class="hidden md:flex">
+                    <a href="#join" class="bg-gold text-navy font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transform hover:scale-105 transition-all shadow-md">
+                        Join Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gold focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-blue-900">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">About Us</a>
+                <a href="#officers" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Officers</a>
+                <a href="#calendar" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Calendar</a>
+                <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Gallery</a>
+                <a href="#join" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold text-navy bg-gold hover:bg-yellow-400">Join Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center pt-20 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-navy opacity-60"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <span class="inline-block py-1 px-3 rounded-full bg-gold/20 text-gold border border-gold backdrop-blur-sm text-sm font-semibold tracking-widest uppercase mb-6 animate-pulse">
+                Caring - Our Way of Life
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">
+                Welcome to <br/> <span class="text-gold">Century High</span> Key Club
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light drop-shadow-md">
+                We are a student-led organization that provides its members with opportunities to provide service, build character and develop leadership.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#about" class="bg-white text-navy font-bold py-3 px-8 rounded-full hover:bg-gray-100 transform hover:-translate-y-1 transition-all shadow-lg text-lg">
+                    Learn More
+                </a>
+                <a href="#join" class="bg-gold text-navy font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition-all shadow-lg text-lg flex items-center justify-center gap-2">
+                    Become a Member <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="inline-flex items-center gap-2 text-gold font-bold uppercase tracking-wider mb-2">
+                        <span class="w-8 h-1 bg-gold rounded-full"></span> About Us
+                    </div>
+                    <h2 class="text-4xl font-bold text-navy mb-6">Making a Difference in Our Community</h2>
+                    <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                        Key Club is an international, student-led organization that provides its members with opportunities to provide service, build character and develop leadership. At Century High School, we pride ourselves on inclusiveness, leadership, and caring.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-navy/10 text-navy rounded-full p-2 h-8 w-8 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Service Building</h4>
+                                <p class="text-gray-600 text-sm">We dedicate hundreds of hours each year to local charities, events, and school cleanups.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-gold/10 text-gold rounded-full p-2 h-8 w-8 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Leadership</h4>
+                                <p class="text-gray-600 text-sm">Members have the chance to run for office and lead large-scale community projects.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="absolute -inset-4 bg-gold rounded-2xl transform rotate-3 opacity-20"></div>
+                    <img src="https://picsum.photos/id/120/800/600" alt="Students Volunteering" class="relative rounded-2xl shadow-2xl w-full object-cover h-[400px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Officers Section -->
+    <section id="officers" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-navy mb-4">Meet Your Officers</h2>
+                <div class="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                    The dedicated team leading Century High School Key Club for the 2025-2026 school year. Reach out to them if you have any questions!
+                </p>
+            </div>
+
+            <!-- Officers Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Officer 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-[3/2] overflow-hidden">
+                        <img src="images/siara2027.png" alt="President" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center border-t-4 border-gold">
+                        <h3 class="text-xl font-bold text-navy mb-1">Siara Estes</h3>
+                        <p class="text-gold font-semibold uppercase tracking-wide text-sm">President</p>
+                    </div>
+                </div>
+
+                <!-- Officer 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-[3/2] overflow-hidden">
+                        <img src="images/helen2027.png" alt="Vice President" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center border-t-4 border-gold">
+                        <h3 class="text-xl font-bold text-navy mb-1">Helen Tran</h3>
+                        <p class="text-gold font-semibold uppercase tracking-wide text-sm">Vice President</p>
+                    </div>
+                </div>
+
+                <!-- Officer 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-[3/2] overflow-hidden">
+                        <img src="https://picsum.photos/id/338/400/400" alt="Secretary" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center border-t-4 border-gold">
+                        <h3 class="text-xl font-bold text-navy mb-1">Michael Chen</h3>
+                        <p class="text-gold font-semibold uppercase tracking-wide text-sm">Secretary</p>
+                    </div>
+                </div>
+
+                <!-- Officer 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-[3/2] overflow-hidden">
+                        <img src="images/ethan2027.png" alt="Treasurer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center border-t-4 border-gold">
+                        <h3 class="text-xl font-bold text-navy mb-1">Ethan Hernandez</h3>
+                        <p class="text-gold font-semibold uppercase tracking-wide text-sm">Treasurer</p>
+                    </div>
+                </div>
+
+                <!-- Officer 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-[3/2] overflow-hidden">
+                        <img src="https://picsum.photos/id/349/400/400" alt="Webmaster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center border-t-4 border-gold">
+                        <h3 class="text-xl font-bold text-navy mb-1">David Smith</h3>
+                        <p class="text-gold font-semibold uppercase tracking-wide text-sm">Webmaster</p>
+                    </div>
+                </div>
+
+                <!-- Officer 6 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="aspect-[3/2] overflow-hidden">
+                        <img src="https://picsum.photos/id/399/400/400" alt="Editor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center border-t-4 border-gold">
+                        <h3 class="text-xl font-bold text-navy mb-1">Jessica Brown</h3>
+                        <p class="text-gold font-semibold uppercase tracking-wide text-sm">Editor</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Calendar Section -->
+    <section id="calendar" class="py-20 bg-navy text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="md:w-2/3">
+                    <h2 class="text-4xl font-bold mb-4 text-white">Upcoming Events</h2>
+                    <div class="w-24 h-1 bg-gold rounded-full mb-6"></div>
+                    <p class="text-gray-300 text-lg">Stay up-to-date with our latest meetings, service events, and fundraisers. Click on an event for more details and to sign up!</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="#" class="inline-flex items-center gap-2 bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-navy font-bold py-2 px-6 rounded-full transition-colors">
+                        <i class="fab fa-google"></i> Sync Calendar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Calendar Iframe Container -->
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden p-2 md:p-4">
+                <!-- IMPORTANT: Replace the 'src' attribute below with your own Google Calendar embed URL -->
+                <div class="w-full h-[500px] md:h-[600px] lg:h-[700px] relative">
+                    <iframe 
+                        src="https://calendar.google.com/calendar/embed?src=c_classroomb1a137aa%40group.calendar.google.com&ctz=America%2FLos_Angeles"
+                        style="border:solid 1px #777" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        scrolling="no"
+                        class="rounded-xl absolute inset-0"
+                        title="Our Calendar">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-navy mb-4">Our Memories</h2>
+                <div class="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                    Check out some highlights from our recent service projects, bonding events, and District Convention!
+                </p>
+            </div>
+
+            <!-- CSS Grid Gallery -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+                
+                <!-- Gallery Item 1 (Spans 2 rows, 2 columns on large screens) -->
+                <div class="group relative overflow-hidden rounded-xl shadow-md lg:col-span-2 lg:row-span-2">
+                    <img src="https://picsum.photos/id/111/800/800" alt="Gallery Image 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-gold font-bold text-xl">Park Cleanup</h4>
+                        <p class="text-white text-sm">Fall 2023</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://picsum.photos/id/222/400/400" alt="Gallery Image 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                        <h4 class="text-gold font-bold">Food Drive</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://picsum.photos/id/333/400/400" alt="Gallery Image 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                        <h4 class="text-gold font-bold">Bake Sale</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-md sm:col-span-2 lg:col-span-1">
+                    <img src="https://picsum.photos/id/444/400/400" alt="Gallery Image 4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                        <h4 class="text-gold font-bold">DCON 2023</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://picsum.photos/id/555/400/400" alt="Gallery Image 5" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                        <h4 class="text-gold font-bold">Social Event</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 (Spans 2 columns) -->
+                <div class="group relative overflow-hidden rounded-xl shadow-md sm:col-span-2">
+                    <img src="https://picsum.photos/id/666/800/400" alt="Gallery Image 6" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                        <h4 class="text-gold font-bold">Kiwanis Meeting</h4>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-md">
+                    <img src="https://picsum.photos/id/777/400/400" alt="Gallery Image 7" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                        <h4 class="text-gold font-bold">Member Induction</h4>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-gray-100 text-navy font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition-colors shadow-sm">
+                    View Full Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-navy border-t-[8px] border-gold pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-center md:text-left">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1">
+                            <img src="https://placehold.co/100x100/ffffff/002855?text=Logo" alt="Key Club Logo" class="w-full h-full object-contain rounded-full">
+                        </div>
+                        <span class="font-bold text-2xl text-white tracking-tight block">Century High Key Club</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-sm mx-auto md:mx-0">
+                        Empowering high school students to lead and serve the community. Caring—Our Way of Life.
+                    </p>
+                    <!-- Social Links -->
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center hover:bg-gold hover:text-navy transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center hover:bg-gold hover:text-navy transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center hover:bg-gold hover:text-navy transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center hover:bg-gold hover:text-navy transition-all">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4 border-b border-blue-800 pb-2 inline-block">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-gold transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-gold transition-colors">About Us</a></li>
+                        <li><a href="#officers" class="hover:text-gold transition-colors">Officers</a></li>
+                        <li><a href="#calendar" class="hover:text-gold transition-colors">Calendar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4 border-b border-blue-800 pb-2 inline-block">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start justify-center md:justify-start gap-2">
+                            <i class="fas fa-map-marker-alt mt-1 text-gold"></i>
+                            <span>1234 School Drive<br>City, State 12345</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-2">
+                            <i class="fas fa-envelope text-gold"></i>
+                            <a href="mailto:contact@centurykeyclub.org" class="hover:text-gold transition-colors">contact@centurykeyclub.org</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-blue-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2024 Century High School Key Club. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-sm">
+                    Made with <i class="fas fa-heart text-red-500"></i> by the Webmaster.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Mobile Menu Toggle Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Change Navigation Background on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-xl');
+                header.style.background = 'rgba(0, 40, 85, 0.98)';
+            } else {
+                header.classList.remove('shadow-xl');
+                header.style.background = 'rgba(0, 40, 85, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>

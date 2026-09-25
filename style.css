@@ -1,0 +1,11 @@
+.glass-nav {
+    background: rgba(0, 40, 85, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 40, 85, 0.7), rgba(0, 40, 85, 0.7)), url('https://picsum.photos/id/119/1920/1080');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
