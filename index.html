@@ -42,8 +42,8 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
                     <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center p-1 border-2 border-gold">
-                        <!-- Placeholder for Key Club Logo -->
-                        <img src="https://placehold.co/100x100/ffffff/002855?text=Logo" alt="Key Club Logo" class="w-full h-full object-contain rounded-full">
+                        <!-- Placeholder for Key Club Logo DONE !--> 
+                        <img src="images/turtleicon.png" alt="Key Club Logo" class="w-full h-full object-contain rounded-full">
                     </div>
                     <div>
                         <span class="font-bold text-xl tracking-tight block">Century High</span>
@@ -56,16 +56,17 @@
                     <a href="#home" class="text-white hover:text-gold font-medium transition-colors">Home</a>
                     <a href="#about" class="text-white hover:text-gold font-medium transition-colors">About Us</a>
                     <a href="#officers" class="text-white hover:text-gold font-medium transition-colors">Officers</a>
-                    <a href="#calendar" class="text-white hover:text-gold font-medium transition-colors">Calendar</a>
+                    <a href="calendar/" class="text-white hover:text-gold font-medium transition-colors">Calendar</a>
                     <a href="#gallery" class="text-white hover:text-gold font-medium transition-colors">Gallery</a>
                 </nav>
 
-                <!-- CTA Button (Desktop) -->
+                
+                <!-- CTA Button (Desktop)
                 <div class="hidden md:flex">
                     <a href="#join" class="bg-gold text-navy font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transform hover:scale-105 transition-all shadow-md">
                         Join Us
                     </a>
-                </div>
+                </div> -->
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
@@ -82,7 +83,7 @@
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Home</a>
                 <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">About Us</a>
                 <a href="#officers" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Officers</a>
-                <a href="#calendar" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Calendar</a>
+                <a href="calendar/" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Calendar</a>
                 <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-gold hover:bg-blue-900">Gallery</a>
                 <a href="#join" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-bold text-navy bg-gold hover:bg-yellow-400">Join Us</a>
             </div>
@@ -97,7 +98,7 @@
                 Caring - Our Way of Life
             </span>
             <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">
-                Welcome to <br/> <span class="text-gold">Century High</span> Key Club
+                Welcome to <br/> <span class="text-gold">Century High School</span> Key Club
             </h1>
             <p class="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light drop-shadow-md">
                 We are a student-led organization that provides its members with opportunities to provide service, build character and develop leadership.
@@ -106,8 +107,8 @@
                 <a href="#about" class="bg-white text-navy font-bold py-3 px-8 rounded-full hover:bg-gray-100 transform hover:-translate-y-1 transition-all shadow-lg text-lg">
                     Learn More
                 </a>
-                <a href="#join" class="bg-gold text-navy font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition-all shadow-lg text-lg flex items-center justify-center gap-2">
-                    Become a Member <i class="fas fa-arrow-right"></i>
+                <a href="calendar/" class="bg-gold text-navy font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transform hover:-translate-y-1 transition-all shadow-lg text-lg flex items-center justify-center gap-2">
+                    Find an Event <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -161,15 +162,13 @@
                 <h2 class="text-4xl font-bold text-navy mb-4">Meet Your Officers</h2>
                 <div class="w-24 h-1 bg-gold mx-auto rounded-full mb-6"></div>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    The dedicated team leading Century High School Key Club for the 2025-2026 school year. Reach out to them if you have any questions!
+                    The dedicated team leading Century High School Key Club for the 2026-2027 school year. Click on the profiles to learn more!
                 </p>
             </div>
-
-            <!-- Officers Grid -->
+            <!-- Combined Officers Grid (1-8) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Officer 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <button type="button" class="officer-card bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-left" data-name="Siara Estes" data-role="President" data-image="images/siara2027.png" data-description="Siara leads the club with a strong focus on service, unity, and student leadership. She helps organize key events and encourages members to stay involved, motivated, and connected to the community.">
                     <div class="aspect-[3/2] overflow-hidden">
                         <img src="images/siara2027.png" alt="President" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
@@ -177,10 +176,9 @@
                         <h3 class="text-xl font-bold text-navy mb-1">Siara Estes</h3>
                         <p class="text-gold font-semibold uppercase tracking-wide text-sm">President</p>
                     </div>
-                </div>
+                </button>
 
-                <!-- Officer 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <button type="button" class="officer-card bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-left" data-name="Helen Tran" data-role="Vice President" data-image="images/helen2027.png" data-description="Helen supports club operations and helps coordinate committees, member engagement, and leadership development. She keeps projects organized and ensures the team stays focused and united.">
                     <div class="aspect-[3/2] overflow-hidden">
                         <img src="images/helen2027.png" alt="Vice President" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
@@ -188,21 +186,19 @@
                         <h3 class="text-xl font-bold text-navy mb-1">Helen Tran</h3>
                         <p class="text-gold font-semibold uppercase tracking-wide text-sm">Vice President</p>
                     </div>
-                </div>
+                </button>
 
-                <!-- Officer 3 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <button type="button" class="officer-card bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-left" data-name="John Song" data-role="Secretary" data-image="https://picsum.photos/id/338/400/400" data-description="John keeps the club organized by managing records, communication, and meeting logistics. He helps make sure important information is shared clearly and that the team stays on track.">
                     <div class="aspect-[3/2] overflow-hidden">
                         <img src="https://picsum.photos/id/338/400/400" alt="Secretary" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6 text-center border-t-4 border-gold">
-                        <h3 class="text-xl font-bold text-navy mb-1">Michael Chen</h3>
+                        <h3 class="text-xl font-bold text-navy mb-1">John Song</h3>
                         <p class="text-gold font-semibold uppercase tracking-wide text-sm">Secretary</p>
                     </div>
-                </div>
+                </button>
 
-                <!-- Officer 4 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <button type="button" class="officer-card bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-left" data-name="Ethan Hernandez" data-role="Treasurer" data-image="images/ethan2027.png" data-description="Ethan manages club funds and helps plan a budget that supports service projects and member activities. He works behind the scenes to make sure the club can continue serving the community effectively.">
                     <div class="aspect-[3/2] overflow-hidden">
                         <img src="images/ethan2027.png" alt="Treasurer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
@@ -210,33 +206,68 @@
                         <h3 class="text-xl font-bold text-navy mb-1">Ethan Hernandez</h3>
                         <p class="text-gold font-semibold uppercase tracking-wide text-sm">Treasurer</p>
                     </div>
-                </div>
+                </button>
 
-                <!-- Officer 5 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <button type="button" class="officer-card bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-left" data-name="Andrew Segerlind" data-role="Webmaster" data-image="images/andrew2027.png" data-description="Andrew keeps the club’s online presence current and engaging, from updates to event promotion. He helps ensure the community can easily learn about what Key Club is doing and how to get involved.">
                     <div class="aspect-[3/2] overflow-hidden">
-                        <img src="https://picsum.photos/id/349/400/400" alt="Webmaster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="images/andrew2027.png" alt="Webmaster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6 text-center border-t-4 border-gold">
-                        <h3 class="text-xl font-bold text-navy mb-1">David Smith</h3>
+                        <h3 class="text-xl font-bold text-navy mb-1">Andrew Segerlind</h3>
                         <p class="text-gold font-semibold uppercase tracking-wide text-sm">Webmaster</p>
                     </div>
-                </div>
+                </button>
 
-                <!-- Officer 6 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <button type="button" class="officer-card bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-left" data-name="Serena Saechao" data-role="Editor" data-image="https://picsum.photos/id/399/400/400" data-description="Serena helps tell the club’s story by writing updates, organizing content, and helping share the impact of our work. She keeps members and the community informed and inspired.">
                     <div class="aspect-[3/2] overflow-hidden">
-                        <img src="https://picsum.photos/id/399/400/400" alt="Editor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="images/serena2026.png" alt="Editor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-6 text-center border-t-4 border-gold">
-                        <h3 class="text-xl font-bold text-navy mb-1">Jessica Brown</h3>
+                        <h3 class="text-xl font-bold text-navy mb-1">Serena Saechao</h3>
                         <p class="text-gold font-semibold uppercase tracking-wide text-sm">Editor</p>
                     </div>
-                </div>
+                </button>
+
+                <button type="button" class="officer-card bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-left" data-name="Logan Roth" data-role="Event Coordinator" data-image="images/logan2027.png" data-description="Logan plans and helps execute club events, creating opportunities for service, fellowship, and leadership. His work keeps members engaged and gives the club memorable experiences throughout the school year.">
+                    <div class="aspect-[3/2] overflow-hidden">
+                        <img src="images/logan2027.png" alt="Event Coordinator" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center border-t-4 border-gold">
+                        <h3 class="text-xl font-bold text-navy mb-1">Logan Roth</h3>
+                        <p class="text-gold font-semibold uppercase tracking-wide text-sm">Event Coordinator</p>
+                    </div>
+                </button>
+
+                <button type="button" class="officer-card bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-left" data-name="Akhila Chitluri" data-role="Fundraiser Liaison" data-image="images/akhila2027.png" data-description="Akhila helps organize fundraising efforts that support community service and club initiatives. She connects projects with resources and keeps members motivated to contribute to the club’s goals.">
+                    <div class="aspect-[3/2] overflow-hidden">
+                        <img src="images/akhila2027.png" alt="Fundraiser Liaison" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center border-t-4 border-gold">
+                        <h3 class="text-xl font-bold text-navy mb-1">Akhila Chitluri</h3>
+                        <p class="text-gold font-semibold uppercase tracking-wide text-sm">Fundraiser Liaison</p>
+                    </div>
+                </button>
+
+                <div class="hidden lg:block pointer-events-none opacity-0" aria-hidden="true"></div>
 
             </div>
         </div>
     </section>
+
+    <div id="officer-modal" class="officer-modal hidden" aria-hidden="true">
+        <div class="officer-modal-backdrop" data-close="true"></div>
+        <div class="officer-modal-panel" role="dialog" aria-modal="true" aria-labelledby="officer-modal-name">
+            <button type="button" class="officer-modal-close" aria-label="Close officer details">×</button>
+            <div class="officer-modal-image-wrap">
+                <img id="officer-modal-image" src="" alt="Officer portrait">
+            </div>
+            <div class="officer-modal-content">
+                <p id="officer-modal-role" class="officer-modal-role"></p>
+                <h3 id="officer-modal-name" class="officer-modal-name"></h3>
+                <p id="officer-modal-description" class="officer-modal-description"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Events Calendar Section -->
     <section id="calendar" class="py-20 bg-navy text-white">
@@ -245,29 +276,28 @@
                 <div class="md:w-2/3">
                     <h2 class="text-4xl font-bold mb-4 text-white">Upcoming Events</h2>
                     <div class="w-24 h-1 bg-gold rounded-full mb-6"></div>
-                    <p class="text-gray-300 text-lg">Stay up-to-date with our latest meetings, service events, and fundraisers. Click on an event for more details and to sign up!</p>
+                    <p class="text-gray-300 text-lg">Stay up-to-date with our latest meetings, service events, and fundraisers. Visit the full calendar page for all event details and sign-ups.</p>
                 </div>
                 <div class="mt-6 md:mt-0">
-                    <a href="#" class="inline-flex items-center gap-2 bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-navy font-bold py-2 px-6 rounded-full transition-colors">
-                        <i class="fab fa-google"></i> Sync Calendar
+                    <a href="calendar/" class="inline-flex items-center gap-2 bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-navy font-bold py-2 px-6 rounded-full transition-colors">
+                        <i class="fas fa-calendar-alt"></i>
+                        View Full Calendar
                     </a>
                 </div>
             </div>
 
-            <!-- Calendar Iframe Container -->
-            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden p-2 md:p-4">
-                <!-- IMPORTANT: Replace the 'src' attribute below with your own Google Calendar embed URL -->
-                <div class="w-full h-[500px] md:h-[600px] lg:h-[700px] relative">
-                    <iframe 
-                        src="https://calendar.google.com/calendar/embed?src=c_classroomb1a137aa%40group.calendar.google.com&ctz=America%2FLos_Angeles"
-                        style="border:solid 1px #777" 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" 
-                        scrolling="no"
-                        class="rounded-xl absolute inset-0"
-                        title="Our Calendar">
-                    </iframe>
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                    <p class="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-3">Meetings</p>
+                    <p class="text-white text-lg font-semibold">Club updates and leadership planning</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                    <p class="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-3">Service</p>
+                    <p class="text-white text-lg font-semibold">Community outreach and volunteer events</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                    <p class="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-3">Fundraisers</p>
+                    <p class="text-white text-lg font-semibold">Support projects and club initiatives</p>
                 </div>
             </div>
         </div>
@@ -363,7 +393,7 @@
                 <div class="md:col-span-2">
                     <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
                         <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1">
-                            <img src="https://placehold.co/100x100/ffffff/002855?text=Logo" alt="Key Club Logo" class="w-full h-full object-contain rounded-full">
+                            <img src="images/turtleicon.png" alt="Key Club Logo" class="w-full h-full object-contain rounded-full">
                         </div>
                         <span class="font-bold text-2xl text-white tracking-tight block">Century High Key Club</span>
                     </div>
@@ -394,7 +424,7 @@
                         <li><a href="#home" class="hover:text-gold transition-colors">Home</a></li>
                         <li><a href="#about" class="hover:text-gold transition-colors">About Us</a></li>
                         <li><a href="#officers" class="hover:text-gold transition-colors">Officers</a></li>
-                        <li><a href="#calendar" class="hover:text-gold transition-colors">Calendar</a></li>
+                        <li><a href="calendar/" class="hover:text-gold transition-colors">Calendar</a></li>
                     </ul>
                 </div>
 
@@ -453,6 +483,48 @@
             } else {
                 header.classList.remove('shadow-xl');
                 header.style.background = 'rgba(0, 40, 85, 0.95)';
+            }
+        });
+
+        const officerModal = document.getElementById('officer-modal');
+        const officerImage = document.getElementById('officer-modal-image');
+        const officerRole = document.getElementById('officer-modal-role');
+        const officerName = document.getElementById('officer-modal-name');
+        const officerDescription = document.getElementById('officer-modal-description');
+        const officerCards = document.querySelectorAll('.officer-card');
+
+        const closeOfficerModal = () => {
+            officerModal.classList.add('hidden');
+            officerModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        officerCards.forEach((card) => {
+            card.addEventListener('click', () => {
+                officerImage.src = card.dataset.image;
+                officerImage.alt = `${card.dataset.name} ${card.dataset.role}`;
+                officerRole.textContent = card.dataset.role;
+                officerName.textContent = card.dataset.name;
+                officerDescription.textContent = card.dataset.description;
+
+                officerModal.classList.remove('hidden');
+                officerModal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('overflow-hidden');
+            });
+        });
+
+        officerModal.addEventListener('click', (event) => {
+            const clickedBackdrop = event.target.dataset.close === 'true';
+            const clickedCloseButton = event.target.closest('.officer-modal-close');
+
+            if (clickedBackdrop || clickedCloseButton) {
+                closeOfficerModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !officerModal.classList.contains('hidden')) {
+                closeOfficerModal();
             }
         });
     </script>
