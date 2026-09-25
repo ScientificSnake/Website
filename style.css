@@ -9,7 +9,7 @@
 }
 
 .hero-bg {
-    background-image: linear-gradient(rgba(0, 40, 85, 0.7), rgba(0, 40, 85, 0.7)), url('https://picsum.photos/id/119/1920/1080');
+    background-image: linear-gradient(rgba(0, 40, 85, 0.7), rgba(0, 40, 85, 0.7)), url("images/centurybg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -52,7 +52,7 @@
 .officer-modal-panel {
     position: relative;
     z-index: 1;
-    width: min(100%, 520px);
+    width: min(100%, 480px);
     background: #ffffff;
     border-radius: 1.5rem;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
@@ -74,7 +74,7 @@
 }
 
 .officer-modal-content {
-    padding: 1.5rem 1.5rem 1.75rem;
+    padding: 1.25rem 1.25rem 1.5rem;
     text-align: center;
 }
 
@@ -99,6 +99,33 @@
     line-height: 1.7;
     margin: 0;
     font-size: 0.98rem;
+}
+
+.officer-modal-contact {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.officer-modal-contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: #002855;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.officer-modal-contact-link i {
+    width: 1rem;
+    color: #F2A900;
+}
+
+.officer-modal-contact-link:hover {
+    color: #F2A900;
 }
 
 .officer-modal-close {
@@ -159,7 +186,7 @@
 .officer-modal-panel {
     position: relative;
     z-index: 1;
-    width: min(100%, 520px);
+    width: min(100%, 480px);
     background: #ffffff;
     border-radius: 1.5rem;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
@@ -181,8 +208,9 @@
 }
 
 .officer-modal-content {
-    padding: 1.5rem 1.5rem 1.75rem;
+    padding: 1.25rem 1.25rem 1.5rem;
     text-align: center;
+    white-space: pre-line;
 }
 
 .officer-modal-role {
@@ -206,6 +234,7 @@
     line-height: 1.7;
     margin: 0;
     font-size: 0.98rem;
+    white-space: pre-line;
 }
 
 .officer-modal-close {
